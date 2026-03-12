@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+<<<<<<< Updated upstream
 
 // Fetch the data from the API and then use that data in the static params.
 const data = await fetch(cLink)
@@ -12,6 +13,15 @@ export async function generateStaticParams() {
 
     return character.map((char) => ({
         slug: char.slug,
+=======
+export async function generateStaticParams() {
+    const characters = await fetch("https://rickandmortyapi.com/api/character/");
+    const charactersJson = await characters.json();
+    const characterIds = charactersJson["results"];
+
+    return characterIds.map((character) => ({
+        id: character.id.toString()
+>>>>>>> Stashed changes
     }))
 }
 
