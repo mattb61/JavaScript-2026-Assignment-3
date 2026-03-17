@@ -1,5 +1,15 @@
 import Image from "next/image";
 
+export async function generateStaticParams() {
+    const characters = await fetch("https://rickandmortyapi.com/api/character/");
+    const charactersJson = await characters.json();
+    const characterIds = charactersJson["results"];
+
+    return characterIds.map((character) => ({
+        id: character.id.toString()
+    }))
+}
+
 export default async function CharacterDetail(props) {
 
     const {id} = await props.params;
