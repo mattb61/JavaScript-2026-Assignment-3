@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const cLink = "https://rickandmortyapi.com/api/character/";
+const cLink = "http://localhost:3000/api/characters/";
 
 export default async function CharactersPage() {
 
@@ -12,8 +12,8 @@ export default async function CharactersPage() {
         <>
             {characterName.map((character) => {
                 return (
-                    <Link key={character.id} href={"/characters/" + character.id}>
-                        <h1>{character.name}</h1>
+                    <Link key={character.id} href={"/api/characters/" + character.id}>
+                        <h1>{character["name"]}</h1>
                     </Link>
                 )
             })}
