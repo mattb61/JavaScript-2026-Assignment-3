@@ -6,7 +6,7 @@ export default function Header() {
         <nav>
             <div>
                 <Link href = "/">Home</Link>
-                <Link href = "/api/characters">Characters</Link>
+                <Link href = "/characters">Characters</Link>
                 <p>This text is just a test to show that Netlify triggered a redeploy from a commit</p>
             </div>
         </nav>

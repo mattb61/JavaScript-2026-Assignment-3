@@ -1,18 +1,18 @@
 import Link from "next/link";
 
-const cLink = "http://localhost:3000/api/characters/";
+const cLink = "http://localhost:3000/api/characters";
 
 export default async function CharactersPage() {
 
     const data = await fetch(cLink)
     const characters = await data.json();
-    const characterName = characters["results"];
+    const characterName = characters;
 
     return (
         <>
-            {characterName.map((character) => {
+            {characters.map((character) => {
                 return (
-                    <Link key={character.id} href={"/api/characters/" + character.id}>
+                    <Link key={character.id} href={"/characters/" + character.id}>
                         <h1>{character["name"]}</h1>
                     </Link>
                 )

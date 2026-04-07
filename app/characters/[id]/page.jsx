@@ -1,9 +1,10 @@
 import Image from "next/image";
 
 export async function generateStaticParams() {
-    const characters = await fetch("https://rickandmortyapi.com/api/character/");
+    const characters = await fetch("http://localhost:3000/api/characters/");
     const charactersJson = await characters.json();
-    const characterIds = charactersJson["results"];
+    const characterIds = charactersJson;
+    console.log(characterIds);
 
     return characterIds.map((character) => ({
         id: character.id.toString()
@@ -14,7 +15,7 @@ export default async function CharacterDetail(props) {
 
     const {id} = await props.params;
 
-    const cUrl = "https://rickandmortyapi.com/api/character/";
+    const cUrl = "http://localhost:3000/api/characters/";
 
     const data = await fetch(cUrl + `${id}`);
     const characterDetail = await data.json();
